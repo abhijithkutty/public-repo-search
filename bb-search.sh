@@ -3,7 +3,6 @@ echo "\nEnter a valid  bitbucket username :"
 read user
 mkdir log/
 mkdir log/$user
-touch log/$user/repo.txt
 curl https://api.bitbucket.org/2.0/repositories/$user?fields=next,values.slug > log/$user/repo.txt
 var=$(grep -i "No workspace with identifier" log/$user/repo.txt | wc -l)
 if(($var == 0));
